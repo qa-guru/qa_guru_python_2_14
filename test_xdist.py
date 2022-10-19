@@ -9,5 +9,5 @@ def session_scoped_fixture():
 
 
 @pytest.mark.parametrize("param", range(20))
-def test_many_params(param, session_scoped_fixture):
+def test_many_params(param):
     time.sleep(1)

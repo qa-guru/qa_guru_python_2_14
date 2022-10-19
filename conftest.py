@@ -30,11 +30,6 @@ def pytest_collection_modifyitems(session: pytest.Session, config: pytest.Config
     return items.sort(key=lambda x: x.name, reverse=True)
 
 
-def pytest_runtest_call(item: pytest.Item):
-    # allure title
-    yield
-
-
 def pytest_sessionfinish(session: pytest.Session):
     pass
 

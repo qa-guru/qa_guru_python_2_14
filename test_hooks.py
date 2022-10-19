@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 
@@ -11,8 +12,8 @@ def pytest_generate_tests(metafunc: pytest.Metafunc):
         metafunc.parametrize("browser", [metafunc.config.getoption("--browser")], indirect=True)
 
 
-def test_desktop_page(browser):
-    pytest.fail("Some reason")
+def test_desktop_page(browser, request):
+    allure.dynamic.title(" ".join(request.node.name.split("_")[1:]).capitalize())
 
 
 def test_mobile_page(browser):
