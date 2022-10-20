@@ -23,6 +23,10 @@ def pytest_sessionstart(session: pytest.Session):
     pass
 
 
+def pytest_runtest_call(item: pytest.Item):
+    allure.dynamic.title(" ".join(item.name.split("_")[1:]).capitalize())
+
+
 def pytest_collection_modifyitems(session: pytest.Session, config: pytest.Config, items: list[pytest.Item]):
     for item in items:
         if "mobile" not in item.name and config.getoption("--mobile-only"):
